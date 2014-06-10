@@ -25,7 +25,6 @@
 		FF697A1619407B2C007BDBD3 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */; };
 		FFB99D8C1940085E0063C266 /* PropertyManagermentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB99D8B1940085E0063C266 /* PropertyManagermentViewController.m */; };
 		FFB99D8F19400D160063C266 /* PropertyManagementViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB99D8E19400D160063C266 /* PropertyManagementViewModel.m */; };
-		FFDDC6BE1940612200ACA5A8 /* CETableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDDC6BD1940612200ACA5A8 /* CETableViewBindingHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +65,6 @@
 		FFB99D8B1940085E0063C266 /* PropertyManagermentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyManagermentViewController.m; sourceTree = "<group>"; };
 		FFB99D8D19400D160063C266 /* PropertyManagementViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyManagementViewModel.h; sourceTree = "<group>"; };
 		FFB99D8E19400D160063C266 /* PropertyManagementViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyManagementViewModel.m; sourceTree = "<group>"; };
-		FFDDC6BB1940612200ACA5A8 /* CEReactiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEReactiveView.h; sourceTree = "<group>"; };
-		FFDDC6BC1940612200ACA5A8 /* CETableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETableViewBindingHelper.h; sourceTree = "<group>"; };
-		FFDDC6BD1940612200ACA5A8 /* CETableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETableViewBindingHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +92,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF3C57ED1946AA3200858CFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFB99D8A1940085E0063C266 /* PropertyManagermentViewController.h */,
+				FFB99D8B1940085E0063C266 /* PropertyManagermentViewController.m */,
+				FF697A1419407B2C007BDBD3 /* MyTableViewCell.h */,
+				FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FF3C57EE1946AA3A00858CFF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FFB99D8D19400D160063C266 /* PropertyManagementViewModel.h */,
+				FFB99D8E19400D160063C266 /* PropertyManagementViewModel.m */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		FF610669193D705E00D15169 = {
 			isa = PBXGroup;
 			children = (
@@ -131,20 +147,15 @@
 		FF61067B193D705E00D15169 /* ReactiveCocoaDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FFDDC6BA1940612200ACA5A8 /* Util */,
+				FF3C57EE1946AA3A00858CFF /* ViewModels */,
+				FF3C57ED1946AA3200858CFF /* Views */,
 				FF610684193D705E00D15169 /* AppDelegate.h */,
 				FF610685193D705E00D15169 /* AppDelegate.m */,
 				FF610687193D705E00D15169 /* Main.storyboard */,
 				FF61068A193D705E00D15169 /* ViewController.h */,
 				FF61068B193D705E00D15169 /* ViewController.m */,
-				FFB99D8A1940085E0063C266 /* PropertyManagermentViewController.h */,
-				FFB99D8B1940085E0063C266 /* PropertyManagermentViewController.m */,
-				FFB99D8D19400D160063C266 /* PropertyManagementViewModel.h */,
-				FFB99D8E19400D160063C266 /* PropertyManagementViewModel.m */,
 				FF61068D193D705E00D15169 /* Images.xcassets */,
 				FF61067C193D705E00D15169 /* Supporting Files */,
-				FF697A1419407B2C007BDBD3 /* MyTableViewCell.h */,
-				FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */,
 			);
 			path = ReactiveCocoaDemo;
 			sourceTree = "<group>";
@@ -176,16 +187,6 @@
 				FF61069D193D705F00D15169 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FFDDC6BA1940612200ACA5A8 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				FFDDC6BB1940612200ACA5A8 /* CEReactiveView.h */,
-				FFDDC6BC1940612200ACA5A8 /* CETableViewBindingHelper.h */,
-				FFDDC6BD1940612200ACA5A8 /* CETableViewBindingHelper.m */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +323,6 @@
 			files = (
 				FF61068C193D705E00D15169 /* ViewController.m in Sources */,
 				FF697A1619407B2C007BDBD3 /* MyTableViewCell.m in Sources */,
-				FFDDC6BE1940612200ACA5A8 /* CETableViewBindingHelper.m in Sources */,
 				FFB99D8F19400D160063C266 /* PropertyManagementViewModel.m in Sources */,
 				FFB99D8C1940085E0063C266 /* PropertyManagermentViewController.m in Sources */,
 				FF610686193D705E00D15169 /* AppDelegate.m in Sources */,

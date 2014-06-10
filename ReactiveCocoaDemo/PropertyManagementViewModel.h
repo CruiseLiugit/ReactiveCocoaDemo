@@ -15,5 +15,9 @@
 @property (nonatomic, strong) RACCommand *searchCommand;
 
 @property (nonatomic, strong) NSString *uid;
+
 @property (nonatomic, strong) NSString *statusMessage;
+
+@property (nonatomic, assign) BOOL isLoading;
+
 @end

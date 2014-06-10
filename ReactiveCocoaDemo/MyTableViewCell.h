@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CEReactiveView.h"
 
-@interface MyTableViewCell : UITableViewCell <CEReactiveView>
-
-- (void)bindViewModel:(id)viewModel;
-
+@interface MyTableViewCell : UITableViewCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier cellData:(id)cellData;
+- (void)configCell;
 @end
