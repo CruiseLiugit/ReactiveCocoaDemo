@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3RG-EE-a4W">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
@@ -36,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="722" y="0.0"/>
         </scene>
-        <!--Property Managerment View Controller-->
+        <!--Geo City View Controller-->
         <scene sceneID="zZm-5W-j4s">
             <objects>
-                <viewController id="T3C-ua-DDY" customClass="PropertyManagermentViewController" sceneMemberID="viewController">
+                <viewController id="T3C-ua-DDY" customClass="GeoCityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sNc-x1-M4t"/>
                         <viewControllerLayoutGuide type="bottom" id="rG4-6H-HHs"/>
@@ -56,7 +57,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XF4-AS-Ogm">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="WoK-zs-syn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="WoK-zs-syn">
+                            <connections>
+                                <segue destination="lk8-SZ-9WQ" kind="push" id="yi0-bz-gRH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnAdd" destination="WoK-zs-syn" id="a01-sr-XKW"/>
@@ -66,6 +71,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdV-1H-V6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1151" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DJC-0N-v6W">
+            <objects>
+                <viewController id="lk8-SZ-9WQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A6a-0V-TnD"/>
+                        <viewControllerLayoutGuide type="bottom" id="U4p-3v-DHd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QO5-Oe-p6j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hPL-OX-VO2">
+                                <rect key="frame" x="39" y="196" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg0-TE-Kh0">
+                                <rect key="frame" x="39" y="109" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xkw-gJ-ik9">
+                                <rect key="frame" x="152" y="105" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ulL-jS-kYc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n0D-Jn-MaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="-6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uth-Ss-uql">

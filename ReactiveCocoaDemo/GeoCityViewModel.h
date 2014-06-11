@@ -1,5 +1,5 @@
 //
-//  PropertyManagementViewModel.h
+//  GeoCityViewModel
 //  ReactiveCocoaDemo
 //
 //  Created by dajing on 14-6-5.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PropertyManagementViewModel : NSObject
+@interface GeoCityViewModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray *entrustedProperties;
 

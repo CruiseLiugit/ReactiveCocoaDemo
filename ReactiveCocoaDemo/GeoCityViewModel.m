@@ -1,5 +1,5 @@
 //
-//  PropertyManagementViewModel.m
+//  GeoCityViewModel
 //  ReactiveCocoaDemo
 //
 //  Created by dajing on 14-6-5.
@@ -12,14 +12,14 @@
 // mock up data request URL
 static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=anjuke";
 
-@interface PropertyManagementViewModel()
+@interface GeoCityViewModel()
 
 @property (nonatomic, strong) RACSignal *searchEnableSignal;
 @property (nonatomic, strong) RACSignal *searchSignal;
 
 @end
 
-@implementation PropertyManagementViewModel
+@implementation GeoCityViewModel
 
 -(id)init {
     self = [super init];

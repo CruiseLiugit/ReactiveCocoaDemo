@@ -1,5 +1,5 @@
 //
-//  PropertyManagermentViewController.h
+//  GeoCityViewController
 //  ReactiveCocoaDemo
 //
 //  Created by dajing on 14-6-5.

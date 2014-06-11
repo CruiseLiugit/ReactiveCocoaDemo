@@ -1,5 +1,5 @@
 //
-//  PropertyManagermentViewController.m
+//  GeoCityViewController
 //  ReactiveCocoaDemo
 //
 //  Created by dajing on 14-6-5.
@@ -13,7 +13,7 @@
 
 @interface GeoCityViewController ()<UITableViewDataSource>
 
-@property (nonatomic, strong) PropertyManagementViewModel *viewModel;
+@property (nonatomic, strong) GeoCityViewModel *viewModel;
 
 @end
 
@@ -45,7 +45,7 @@
 
 -(void)bindViewModel {
     // init viewModel
-    self.viewModel = [PropertyManagementViewModel new];
+    self.viewModel = [GeoCityViewModel new];
     
     // bind self.uid to viewModel.uid
     RAC(self.viewModel, uid) = RACObserve(self, uid);
