@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PropertyManagermentViewController : UIViewController
+@interface GeoCityViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *entrustedTbl;
 @property (nonatomic, strong) NSString *uid;

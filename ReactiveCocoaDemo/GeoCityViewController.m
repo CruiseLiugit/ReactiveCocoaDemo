@@ -6,18 +6,18 @@
 //  Copyright (c) 2014年 Anjuke. All rights reserved.
 //
 
-#import "PropertyManagermentViewController.h"
-#import "PropertyManagementViewModel.h"
+#import "GeoCityViewController.h"
+#import "GeoCityViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MyTableViewCell.h"
 
-@interface PropertyManagermentViewController ()<UITableViewDataSource>
+@interface GeoCityViewController ()<UITableViewDataSource>
 
 @property (nonatomic, strong) PropertyManagementViewModel *viewModel;
 
 @end
 
-@implementation PropertyManagermentViewController
+@implementation GeoCityViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

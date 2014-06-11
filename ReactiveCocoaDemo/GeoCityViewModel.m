@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Anjuke. All rights reserved.
 //
 
-#import "PropertyManagementViewModel.h"
+#import "GeoCityViewModel.h"
 #import "AFHTTPRequestOperationManager+RACSupport.h"
 
 // mock up data request URL
