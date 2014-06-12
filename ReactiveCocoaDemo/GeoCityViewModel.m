@@ -8,6 +8,7 @@
 
 #import "GeoCityViewModel.h"
 #import "AFHTTPRequestOperationManager+RACSupport.h"
+#import "City.h"
 
 // mock up data request URL
 static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=anjuke";
@@ -84,9 +85,10 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
 - (void)registerCommandState {
     // search success complete call back
     RACSignal *searchResultsSignal = [[self.searchCommand.executionSignals
-       flattenMap:^RACStream *(id value) {
-           return value;
-       }]
+//       flattenMap:^RACStream *(id value) {
+//           return value;
+//       }]
+                                       switchToLatest]
          map:^id(NSDictionary *jsonSearchResult) {
              /* return signal which contains array that can be binded to self.entrustedProperties
                 or u can just set 'self.entrustedProperties = jsonSearchResult[@"geonames"]' which
@@ -98,12 +100,16 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
     
     // set additional image url to each data
     // if u chose set self.entrustedProperties = array, remove the line below
-    RAC(self, entrustedProperties) = [searchResultsSignal map:^id(NSArray *rawArray) {
+    RAC(self, cities) = [searchResultsSignal map:^id(NSArray *rawArray) {
         RACSequence *result;
         if (rawArray) {
            result = [rawArray.rac_sequence map:^id(NSDictionary *rawDic) {
                NSMutableDictionary *dic = [(NSDictionary *)rawDic mutableCopy];
+               City *city = [[City alloc] init];
+               
                NSString *cityName = dic[@"toponymName"];
+               
+               city.cityName = cityName;
                
                if ([cityName isEqualToString:@"Beijing"])
                    [dic setObject:@"http://upload.wikimedia.org/wikipedia/commons/thumb/9/95/BeijingWatchTower.jpg/220px-BeijingWatchTower.jpg" forKey:@"imgUrl"];
@@ -126,7 +132,9 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
                else
                     [dic setObject:@"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Old_timer_structural_worker2.jpg/220px-Old_timer_structural_worker2.jpg" forKey:@"imgUrl"];
 
-               return dic;
+               city.cityImage = dic[@"imgUrl"];
+               return city;
+//               return dic;
            }]; // end nested map
         } // end if
         

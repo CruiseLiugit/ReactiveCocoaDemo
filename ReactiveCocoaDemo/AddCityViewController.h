@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
+
+@protocol SaveDataCallBack <NSObject>
+
+-(void)didSaveDataCallback:(City *)city;
+
+@end
 
 @interface AddCityViewController : UIViewController
+
+@property (nonatomic, weak) id<SaveDataCallBack> delegate;
 
 @end

@@ -12,5 +12,6 @@
 @property (nonatomic, strong) NSString *cityName;
 @property (nonatomic, assign) float population;
 @property (nonatomic, strong) UIColor *popColor;
-@property (nonatomic ,strong, readonly) RACSignal *cityNameValidatorSignal;
+@property (nonatomic ,strong) RACSignal *cityNameValidatorSignal;
+@property (nonatomic, strong) RACCommand *saveCommand;
 @end

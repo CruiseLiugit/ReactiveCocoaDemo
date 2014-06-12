@@ -72,7 +72,14 @@
         self.viewModel.cityName = name;
     }];
     
-    RAC(self.btnSave, enabled) = self.viewModel.cityNameValidatorSignal;
+//    RAC(self.btnSave, enabled) = self.viewModel.cityNameValidatorSignal;
+    self.btnSave.rac_command = self.viewModel.saveCommand;
+    
+    [[self.btnSave.rac_command.executionSignals switchToLatest] subscribeNext:^(id x) {
+//        NSLog(@"%@", x);
+        [self.delegate didSaveDataCallback:x];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
     
     // set validation delay until button click
 //    [[self.btnSave rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

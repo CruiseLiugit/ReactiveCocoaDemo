@@ -10,7 +10,7 @@
 
 @interface GeoCityViewModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *entrustedProperties;
+@property (nonatomic, strong) NSMutableArray *cities;
 
 @property (nonatomic, strong) RACCommand *searchCommand;
 

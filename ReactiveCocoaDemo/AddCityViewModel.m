@@ -7,6 +7,7 @@
 //
 
 #import "AddCityViewModel.h"
+#import "City.h"
 
 @implementation AddCityViewModel
 
@@ -28,15 +29,37 @@
 }
 
 -(RACSignal *)cityNameValidatorSignal {
-    return [RACObserve(self,cityName) map:^id(NSString *newName) {
-        BOOL isValid = true;
-        
-        if ([newName isEqualToString:@""]) {
-            isValid = false;
-        }
-        
-        return [NSNumber numberWithBool:isValid];
-    }];
+    if (_cityNameValidatorSignal == nil ) {
+        _cityNameValidatorSignal = [RACObserve(self,cityName) map:^id(NSString *newName) {
+            BOOL isValid = true;
+            
+            if ([newName isEqualToString:@""]) {
+                isValid = false;
+            }
+            
+            return [NSNumber numberWithBool:isValid];
+        }];
+    }
+    return _cityNameValidatorSignal;
+}
+
+-(RACCommand *)saveCommand {
+    if (_saveCommand == nil) {
+        _saveCommand = [[RACCommand alloc] initWithEnabled:self.cityNameValidatorSignal signalBlock:
+            ^RACSignal *(id input) {
+                return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                    City *newCity = [[City alloc] init];
+                    newCity.cityName = self.cityName;
+                    newCity.cityImage = @"";
+                    
+                    [subscriber sendNext:newCity];
+                    [subscriber sendCompleted];
+                    return nil;
+                }];
+            }];
+
+    }
+    return _saveCommand;
 }
 
 @end

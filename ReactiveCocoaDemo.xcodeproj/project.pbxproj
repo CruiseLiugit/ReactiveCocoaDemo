@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A68248665C8E44EDAEDE36E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F459F0A87D3B40B581E342B9 /* libPods.a */; };
+		FF3283CB194981B20003CEE2 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3283CA194981B20003CEE2 /* City.m */; };
 		FF3C57F11947128C00858CFF /* AddCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3C57F01947128C00858CFF /* AddCityViewController.m */; };
 		FF3C57F4194712AF00858CFF /* AddCityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3C57F3194712AF00858CFF /* AddCityViewModel.m */; };
 		FF610676193D705E00D15169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF610675193D705E00D15169 /* Foundation.framework */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		DDBCB87D4BDD44FEA6A40607 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F459F0A87D3B40B581E342B9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3283C9194981B20003CEE2 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		FF3283CA194981B20003CEE2 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		FF3C57EF1947128C00858CFF /* AddCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCityViewController.h; sourceTree = "<group>"; };
 		FF3C57F01947128C00858CFF /* AddCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCityViewController.m; sourceTree = "<group>"; };
 		FF3C57F2194712AF00858CFF /* AddCityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCityViewModel.h; sourceTree = "<group>"; };
@@ -136,6 +139,15 @@
 			name = AddCity;
 			sourceTree = "<group>";
 		};
+		FF3283C81949819C0003CEE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF3283C9194981B20003CEE2 /* City.h */,
+				FF3283CA194981B20003CEE2 /* City.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		FF3C57ED1946AA3200858CFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +201,7 @@
 		FF61067B193D705E00D15169 /* ReactiveCocoaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FF3283C81949819C0003CEE2 /* Models */,
 				FF3C57EE1946AA3A00858CFF /* ViewModels */,
 				FF3C57ED1946AA3200858CFF /* Views */,
 				FF610684193D705E00D15169 /* AppDelegate.h */,
@@ -371,6 +384,7 @@
 				FFB99D8C1940085E0063C266 /* GeoCityViewController.m in Sources */,
 				FF610686193D705E00D15169 /* AppDelegate.m in Sources */,
 				FF610682193D705E00D15169 /* main.m in Sources */,
+				FF3283CB194981B20003CEE2 /* City.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

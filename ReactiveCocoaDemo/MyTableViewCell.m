@@ -7,10 +7,11 @@
 //
 
 #import "MyTableViewCell.h"
+#import "City.h"
 
 @interface MyTableViewCell()
 
-@property (nonatomic, strong) id cellData;
+@property (nonatomic, strong) City *city;
 
 @property(nonatomic, strong) UIImageView *imgView;
 
@@ -24,7 +25,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.cellData = cellData;
+        self.city = (City *)cellData;
         self.imgView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 4, 80, 80)];
         [self.contentView addSubview:self.imgView];
         [self bindingCell];
@@ -34,7 +35,7 @@
 
 - (void)bindingCell {
     self.imgView.image = nil;
-    [[[self signalForImage:[NSURL URLWithString:self.cellData[@"imgUrl"]]] deliverOn:[RACScheduler mainThreadScheduler]]
+    [[[self signalForImage:[NSURL URLWithString:self.city.cityImage]] deliverOn:[RACScheduler mainThreadScheduler]]
      subscribeNext:^(id x) {
         self.imgView.image = x;
      }];
@@ -46,7 +47,7 @@
 }
 
 - (void)configCell {
-    self.textLabel.text = self.cellData[@"toponymName"];
+    self.textLabel.text = self.city.cityName;
 }
 
 -(RACSignal *)signalForImage:(NSURL *)imageUrl {

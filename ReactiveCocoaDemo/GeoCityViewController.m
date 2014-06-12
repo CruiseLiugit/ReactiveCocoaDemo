@@ -9,8 +9,10 @@
 #import "GeoCityViewController.h"
 #import "GeoCityViewModel.h"
 #import "MyTableViewCell.h"
+#import "AddCityViewController.h"
+#import "City.h"
 
-@interface GeoCityViewController ()<UITableViewDataSource>
+@interface GeoCityViewController ()<UITableViewDataSource, SaveDataCallBack>
 
 @property (nonatomic, strong) GeoCityViewModel *viewModel;
 
@@ -52,7 +54,7 @@
     RAC(self.viewModel, uid) = RACObserve(self, uid);
 
     // suscribe viewModel.entrustedProperties to refresh tableview
-    [RACObserve(self.viewModel, entrustedProperties) subscribeNext:^(id x) {
+    [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
 //        NSLog(@"data is %@", self.viewModel.entrustedProperties);
         @strongify(self);
 
@@ -89,7 +91,7 @@
 #pragma mark - UITableViewDataSource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.entrustedProperties.count;
+    return self.viewModel.cities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,12 +99,33 @@
 
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier cellData:self.viewModel.entrustedProperties[indexPath.row]];
+        cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier cellData:self.viewModel.cities[indexPath.row]];
     }
     
     [cell configCell];
     
     return  cell;
+}
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    AddCityViewController *addController = (AddCityViewController *)[segue destinationViewController];
+//    addController.delegate = self;
+//    
+////    [[[self rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)]
+////     deliverOn:[RACScheduler mainThreadScheduler]]
+////    subscribeNext:^(RACTuple *tuple) {
+////        City *newCity = tuple.first;
+//////        NSLog(@"new city is %@", newCity.cityName);
+////        [self.viewModel.cities addObject:newCity];
+//////        [self.entrustedTbl reloadData];
+////    }];
+//}
+
+-(void)didSaveDataCallback:(City *)newCity {
+//    City *newCity = newCity;
+    //        NSLog(@"new city is %@", newCity.cityName);
+    [self.viewModel.cities addObject:newCity];
+    [self.entrustedTbl reloadData];
 }
 
 @end
