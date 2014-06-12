@@ -98,15 +98,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF3C57ED1946AA3200858CFF /* Views */ = {
+		FF3283C419485E970003CEE2 /* CityList */ = {
 			isa = PBXGroup;
 			children = (
 				FFB99D8A1940085E0063C266 /* GeoCityViewController.h */,
 				FFB99D8B1940085E0063C266 /* GeoCityViewController.m */,
 				FF697A1419407B2C007BDBD3 /* MyTableViewCell.h */,
 				FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */,
+			);
+			name = CityList;
+			sourceTree = "<group>";
+		};
+		FF3283C519485EAC0003CEE2 /* AddCity */ = {
+			isa = PBXGroup;
+			children = (
+				FF3C57EF1947128C00858CFF /* AddCityViewController.h */,
+				FF3C57F01947128C00858CFF /* AddCityViewController.m */,
+			);
+			name = AddCity;
+			sourceTree = "<group>";
+		};
+		FF3283C619485EB90003CEE2 /* CityList */ = {
+			isa = PBXGroup;
+			children = (
+				FFB99D8D19400D160063C266 /* GeoCityViewModel.h */,
+				FFB99D8E19400D160063C266 /* GeoCityViewModel.m */,
+			);
+			name = CityList;
+			sourceTree = "<group>";
+		};
+		FF3283C719485EC50003CEE2 /* AddCity */ = {
+			isa = PBXGroup;
+			children = (
 				FF3C57F2194712AF00858CFF /* AddCityViewModel.h */,
 				FF3C57F3194712AF00858CFF /* AddCityViewModel.m */,
+			);
+			name = AddCity;
+			sourceTree = "<group>";
+		};
+		FF3C57ED1946AA3200858CFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF3283C519485EAC0003CEE2 /* AddCity */,
+				FF3283C419485E970003CEE2 /* CityList */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -114,10 +148,8 @@
 		FF3C57EE1946AA3A00858CFF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				FFB99D8D19400D160063C266 /* GeoCityViewModel.h */,
-				FFB99D8E19400D160063C266 /* GeoCityViewModel.m */,
-				FF3C57EF1947128C00858CFF /* AddCityViewController.h */,
-				FF3C57F01947128C00858CFF /* AddCityViewController.m */,
+				FF3283C719485EC50003CEE2 /* AddCity */,
+				FF3283C619485EB90003CEE2 /* CityList */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";

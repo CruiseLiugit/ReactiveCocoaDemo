@@ -18,6 +18,4 @@
 
 @property (nonatomic, strong) NSString *statusMessage;
 
-@property (nonatomic, assign) BOOL isLoading;
-
 @end

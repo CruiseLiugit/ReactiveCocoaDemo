@@ -8,7 +8,6 @@
 
 #import "GeoCityViewController.h"
 #import "GeoCityViewModel.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MyTableViewCell.h"
 
 @interface GeoCityViewController ()<UITableViewDataSource>
@@ -44,6 +43,8 @@
 }
 
 -(void)bindViewModel {
+    @weakify(self);
+
     // init viewModel
     self.viewModel = [GeoCityViewModel new];
     
@@ -53,6 +54,8 @@
     // suscribe viewModel.entrustedProperties to refresh tableview
     [RACObserve(self.viewModel, entrustedProperties) subscribeNext:^(id x) {
 //        NSLog(@"data is %@", self.viewModel.entrustedProperties);
+        @strongify(self);
+
         [self.entrustedTbl reloadData];
     }];
     
@@ -63,6 +66,8 @@
     [[RACObserve(self.viewModel.searchCommand, executing) flattenMap:^RACStream *(id value) {
         return value;
     }] subscribeNext:^(id x) {
+        @strongify(self);
+
         BOOL isLoading = [x boolValue];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = isLoading;
         self.btnAdd.enabled = !isLoading;

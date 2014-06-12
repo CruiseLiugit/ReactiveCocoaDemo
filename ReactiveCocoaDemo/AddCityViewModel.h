@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface AddCityViewModel : NSObject
-
+@property (nonatomic, strong) NSString *cityName;
+@property (nonatomic, assign) float population;
+@property (nonatomic, strong) UIColor *popColor;
+@property (nonatomic ,strong, readonly) RACSignal *cityNameValidatorSignal;
 @end
