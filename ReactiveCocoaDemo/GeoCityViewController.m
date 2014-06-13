@@ -55,9 +55,7 @@
 
     // suscribe viewModel.entrustedProperties to refresh tableview
     [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
-//        NSLog(@"data is %@", self.viewModel.entrustedProperties);
         @strongify(self);
-
         [self.entrustedTbl reloadData];
     }];
     
@@ -99,33 +97,31 @@
 
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier cellData:self.viewModel.cities[indexPath.row]];
+        cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
+    cell.city = self.viewModel.cities[indexPath.row];
+
     [cell configCell];
     
     return  cell;
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    AddCityViewController *addController = (AddCityViewController *)[segue destinationViewController];
-//    addController.delegate = self;
-//    
-////    [[[self rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)]
-////     deliverOn:[RACScheduler mainThreadScheduler]]
-////    subscribeNext:^(RACTuple *tuple) {
-////        City *newCity = tuple.first;
-//////        NSLog(@"new city is %@", newCity.cityName);
-////        [self.viewModel.cities addObject:newCity];
-//////        [self.entrustedTbl reloadData];
-////    }];
-//}
-
--(void)didSaveDataCallback:(City *)newCity {
-//    City *newCity = newCity;
-    //        NSLog(@"new city is %@", newCity.cityName);
-    [self.viewModel.cities addObject:newCity];
-    [self.entrustedTbl reloadData];
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AddCityViewController *addController = (AddCityViewController *)[segue destinationViewController];
+    
+    [[[self rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)]
+     deliverOn:[RACScheduler mainThreadScheduler]]
+    subscribeNext:^(RACTuple *tuple) {
+        City *newCity = tuple.first;
+        [self.viewModel.cities addObject:newCity];
+        // need to refresh the table, because the signal is release when pushing new controller
+        [self.entrustedTbl reloadData];
+    }];
+    
+    // Need to "reset" the cached values of respondsToSelector: of UIKit
+    // due to the issue @giuhub https://github.com/ReactiveCocoa/ReactiveCocoa/issues/1121
+    addController.delegate = self;
 }
 
 @end

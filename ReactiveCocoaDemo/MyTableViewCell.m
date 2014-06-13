@@ -8,37 +8,24 @@
 
 #import "MyTableViewCell.h"
 #import "City.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MyTableViewCell()
 
-@property (nonatomic, strong) City *city;
-
 @property(nonatomic, strong) UIImageView *imgView;
-
-- (void)bindingCell;
 
 @end
 
 @implementation MyTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier cellData:(id)cellData
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.city = (City *)cellData;
         self.imgView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 4, 80, 80)];
         [self.contentView addSubview:self.imgView];
-        [self bindingCell];
     }
     return self;
-}
-
-- (void)bindingCell {
-    self.imgView.image = nil;
-    [[[self signalForImage:[NSURL URLWithString:self.city.cityImage]] deliverOn:[RACScheduler mainThreadScheduler]]
-     subscribeNext:^(id x) {
-        self.imgView.image = x;
-     }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -48,22 +35,37 @@
 
 - (void)configCell {
     self.textLabel.text = self.city.cityName;
+    [self.imgView setImageWithURL:[NSURL URLWithString:self.city.cityImage]];
 }
 
--(RACSignal *)signalForImage:(NSURL *)imageUrl {
-    RACScheduler *scheduler = [RACScheduler schedulerWithPriority:RACSchedulerPriorityBackground];
-    
-    RACSignal *imageDownloadSignal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSData *data = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:data];
-        [subscriber sendNext:image];
-        [subscriber sendCompleted];
-        return nil;
-    }] subscribeOn:scheduler];
+// bind image with signal, but the cell will refresh when it will be shown again, need to resolve
 
-    return [[imageDownloadSignal
-             takeUntil:self.rac_prepareForReuseSignal]
-            deliverOn:[RACScheduler mainThreadScheduler]];
-}
+//- (void)bindingCellWith:(id)cellData {
+////    self.city = (City *)cellData;
+////    [RACObserve(self, city) subscribeNext:^(id x) {
+//        [[self signalForImage:[NSURL URLWithString:self.city.cityImage]]
+//         subscribeNext:^(id x) {
+//             self.imgView.image = x;
+//         }];
+////    }];
+//
+//    self.textLabel.text = self.city.cityName;
+//}
+
+//-(RACSignal *)signalForImage:(NSURL *)imageUrl {
+//    RACScheduler *scheduler = [RACScheduler schedulerWithPriority:RACSchedulerPriorityBackground];
+//    
+//    RACSignal *imageDownloadSignal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+//        NSData *data = [NSData dataWithContentsOfURL:imageUrl];
+//        UIImage *image = [UIImage imageWithData:data];
+//        [subscriber sendNext:image];
+//        [subscriber sendCompleted];
+//        return nil;
+//    }] subscribeOn:scheduler];
+//
+//    return [[imageDownloadSignal
+//             takeUntil:self.rac_prepareForReuseSignal]
+//            deliverOn:[RACScheduler mainThreadScheduler]];
+//}
 
 @end

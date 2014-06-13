@@ -15,8 +15,6 @@
     self = [super init];
     if(!self) return nil;
     
-    self.cityName = @"";
-    
     [self bindPopulationColor];
     
     return self;
@@ -50,7 +48,7 @@
                 return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                     City *newCity = [[City alloc] init];
                     newCity.cityName = self.cityName;
-                    newCity.cityImage = @"";
+                    newCity.cityImage = @"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Ngaye_%28Naraka%29_in_Burmese_art.jpg/220px-Ngaye_%28Naraka%29_in_Burmese_art.jpg";
                     
                     [subscriber sendNext:newCity];
                     [subscriber sendCompleted];

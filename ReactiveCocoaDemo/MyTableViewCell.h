@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 @interface MyTableViewCell : UITableViewCell
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier cellData:(id)cellData;
+//- (void)bindingCellWith:(id)cellData;
 - (void)configCell;
+@property (nonatomic, strong) City *city;
 @end

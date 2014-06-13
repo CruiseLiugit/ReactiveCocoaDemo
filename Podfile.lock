@@ -1,5 +1,5 @@
 PODS:
-  - AFNetworking (2.2.4):
+  - AFNetworking (2.3.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
@@ -9,16 +9,18 @@ PODS:
   - AFNetworking-RACExtensions (0.1.4):
     - AFNetworking (~> 2.0)
     - ReactiveCocoa (~> 2.0)
-  - AFNetworking/NSURLConnection (2.2.4):
+  - AFNetworking/NSURLConnection (2.3.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.4):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.4)
-  - AFNetworking/Security (2.2.4)
-  - AFNetworking/Serialization (2.2.4)
-  - AFNetworking/UIKit (2.2.4):
+  - AFNetworking/NSURLSession (2.3.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.3.0)
+  - AFNetworking/Security (2.3.0)
+  - AFNetworking/Serialization (2.3.0)
+  - AFNetworking/UIKit (2.3.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - ReactiveCocoa (2.3.1):
@@ -37,7 +39,7 @@ DEPENDENCIES:
   - ReactiveViewModel
 
 SPEC CHECKSUMS:
-  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  AFNetworking: e7abefee64543aa978c9d759bc8892402b1ed7d1
   AFNetworking-RACExtensions: 1d7fbc98d11e9e02ae26faed0c777c6e840464b5
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
