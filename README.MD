@@ -29,6 +29,7 @@ ReacticeCocoa，相对于它的复杂度，文档还是比较缺乏的，官方�
 - flattenMap
 - map
 - filter
+- rac_signalForSelector
 
 **参考资料：**
 
@@ -38,3 +39,6 @@ ReacticeCocoa，相对于它的复杂度，文档还是比较缺乏的，官方�
 [Ray's blog](http://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2)
 
 [Using RACCommand](http://codeblog.shape.dk/blog/2013/12/05/reactivecocoa-essentials-understanding-and-using-raccommand/)
+
+`PS:`
+用xcode6 bete测试kiwi会crash，改用xcode5
