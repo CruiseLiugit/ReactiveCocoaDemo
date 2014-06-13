@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FE44B00E7F24821978E20C2 /* libPods-ReactiveCocoaDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3A9A3C35248DEBB0BB9B3 /* libPods-ReactiveCocoaDemoTests.a */; };
 		A68248665C8E44EDAEDE36E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F459F0A87D3B40B581E342B9 /* libPods.a */; };
 		FF3283CB194981B20003CEE2 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3283CA194981B20003CEE2 /* City.m */; };
 		FF3C57F11947128C00858CFF /* AddCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3C57F01947128C00858CFF /* AddCityViewController.m */; };
@@ -24,8 +25,8 @@
 		FF610696193D705F00D15169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF610675193D705E00D15169 /* Foundation.framework */; };
 		FF610697193D705F00D15169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF610679193D705E00D15169 /* UIKit.framework */; };
 		FF61069F193D705F00D15169 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF61069D193D705F00D15169 /* InfoPlist.strings */; };
-		FF6106A1193D705F00D15169 /* ReactiveCocoaDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6106A0193D705F00D15169 /* ReactiveCocoaDemoTests.m */; };
 		FF697A1619407B2C007BDBD3 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */; };
+		FF839E50194AE5FB00D4194B /* SampleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FF839E4F194AE5FB00D4194B /* SampleSpec.m */; };
 		FFB99D8C1940085E0063C266 /* GeoCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB99D8B1940085E0063C266 /* GeoCityViewController.m */; };
 		FFB99D8F19400D160063C266 /* GeoCityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB99D8E19400D160063C266 /* GeoCityViewModel.m */; };
 /* End PBXBuildFile section */
@@ -38,9 +39,32 @@
 			remoteGlobalIDString = FF610671193D705E00D15169;
 			remoteInfo = ReactiveCocoaDemo;
 		};
+		FF839E45194AE25400D4194B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF61066A193D705E00D15169 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF610671193D705E00D15169;
+			remoteInfo = ReactiveCocoaDemo;
+		};
+		FF839E47194AE25400D4194B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF61066A193D705E00D15169 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF610671193D705E00D15169;
+			remoteInfo = ReactiveCocoaDemo;
+		};
+		FF839E49194AE27300D4194B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF61066A193D705E00D15169 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF610671193D705E00D15169;
+			remoteInfo = ReactiveCocoaDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8FC049C557E34A74AF189755 /* Pods-ReactiveCocoaDemoTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCocoaDemoTests.xcconfig"; path = "Pods/Pods-ReactiveCocoaDemoTests.xcconfig"; sourceTree = "<group>"; };
+		AAF3A9A3C35248DEBB0BB9B3 /* libPods-ReactiveCocoaDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactiveCocoaDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBCB87D4BDD44FEA6A40607 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F459F0A87D3B40B581E342B9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3283C9194981B20003CEE2 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -67,9 +91,9 @@
 		FF610694193D705F00D15169 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FF61069C193D705F00D15169 /* ReactiveCocoaDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReactiveCocoaDemoTests-Info.plist"; sourceTree = "<group>"; };
 		FF61069E193D705F00D15169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FF6106A0193D705F00D15169 /* ReactiveCocoaDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactiveCocoaDemoTests.m; sourceTree = "<group>"; };
 		FF697A1419407B2C007BDBD3 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
 		FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		FF839E4F194AE5FB00D4194B /* SampleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleSpec.m; sourceTree = "<group>"; };
 		FFB99D8A1940085E0063C266 /* GeoCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoCityViewController.h; sourceTree = "<group>"; };
 		FFB99D8B1940085E0063C266 /* GeoCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoCityViewController.m; sourceTree = "<group>"; };
 		FFB99D8D19400D160063C266 /* GeoCityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoCityViewModel.h; sourceTree = "<group>"; };
@@ -95,6 +119,7 @@
 				FF610695193D705F00D15169 /* XCTest.framework in Frameworks */,
 				FF610697193D705F00D15169 /* UIKit.framework in Frameworks */,
 				FF610696193D705F00D15169 /* Foundation.framework in Frameworks */,
+				5FE44B00E7F24821978E20C2 /* libPods-ReactiveCocoaDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +199,7 @@
 				FF610674193D705E00D15169 /* Frameworks */,
 				FF610673193D705E00D15169 /* Products */,
 				DDBCB87D4BDD44FEA6A40607 /* Pods.xcconfig */,
+				8FC049C557E34A74AF189755 /* Pods-ReactiveCocoaDemoTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,6 +220,7 @@
 				FF610679193D705E00D15169 /* UIKit.framework */,
 				FF610694193D705F00D15169 /* XCTest.framework */,
 				F459F0A87D3B40B581E342B9 /* libPods.a */,
+				AAF3A9A3C35248DEBB0BB9B3 /* libPods-ReactiveCocoaDemoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,8 +256,8 @@
 		FF61069A193D705F00D15169 /* ReactiveCocoaDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF6106A0193D705F00D15169 /* ReactiveCocoaDemoTests.m */,
 				FF61069B193D705F00D15169 /* Supporting Files */,
+				FF839E4F194AE5FB00D4194B /* SampleSpec.m */,
 			);
 			path = ReactiveCocoaDemoTests;
 			sourceTree = "<group>";
@@ -270,14 +297,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF6106A7193D705F00D15169 /* Build configuration list for PBXNativeTarget "ReactiveCocoaDemoTests" */;
 			buildPhases = (
+				89504A1DC98C4210B60336E7 /* Check Pods Manifest.lock */,
 				FF61068F193D705F00D15169 /* Sources */,
 				FF610690193D705F00D15169 /* Frameworks */,
 				FF610691193D705F00D15169 /* Resources */,
+				5A15E7C872064D77B1B4EFB4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				FF610699193D705F00D15169 /* PBXTargetDependency */,
+				FF839E46194AE25400D4194B /* PBXTargetDependency */,
+				FF839E48194AE25400D4194B /* PBXTargetDependency */,
+				FF839E4A194AE27300D4194B /* PBXTargetDependency */,
 			);
 			name = ReactiveCocoaDemoTests;
 			productName = ReactiveCocoaDemoTests;
@@ -339,6 +371,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5A15E7C872064D77B1B4EFB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ReactiveCocoaDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89504A1DC98C4210B60336E7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		943D2FA8E1244697AB4F7BC6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,7 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF6106A1193D705F00D15169 /* ReactiveCocoaDemoTests.m in Sources */,
+				FF839E50194AE5FB00D4194B /* SampleSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +465,21 @@
 			isa = PBXTargetDependency;
 			target = FF610671193D705E00D15169 /* ReactiveCocoaDemo */;
 			targetProxy = FF610698193D705F00D15169 /* PBXContainerItemProxy */;
+		};
+		FF839E46194AE25400D4194B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF610671193D705E00D15169 /* ReactiveCocoaDemo */;
+			targetProxy = FF839E45194AE25400D4194B /* PBXContainerItemProxy */;
+		};
+		FF839E48194AE25400D4194B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF610671193D705E00D15169 /* ReactiveCocoaDemo */;
+			targetProxy = FF839E47194AE25400D4194B /* PBXContainerItemProxy */;
+		};
+		FF839E4A194AE27300D4194B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF610671193D705E00D15169 /* ReactiveCocoaDemo */;
+			targetProxy = FF839E49194AE27300D4194B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -534,6 +611,7 @@
 		};
 		FF6106A8193D705F00D15169 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC049C557E34A74AF189755 /* Pods-ReactiveCocoaDemoTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReactiveCocoaDemo.app/ReactiveCocoaDemo";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -556,6 +634,7 @@
 		};
 		FF6106A9193D705F00D15169 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC049C557E34A74AF189755 /* Pods-ReactiveCocoaDemoTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReactiveCocoaDemo.app/ReactiveCocoaDemo";
 				FRAMEWORK_SEARCH_PATHS = (

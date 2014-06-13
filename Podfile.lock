@@ -23,6 +23,11 @@ PODS:
   - AFNetworking/UIKit (2.3.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Kiwi/ARC (2.2.4)
+  - Kiwi/NonARC (2.2.4)
+  - Kiwi/XCTest (2.2.4):
+    - Kiwi/ARC
+    - Kiwi/NonARC
   - ReactiveCocoa (2.3.1):
     - ReactiveCocoa/UI
   - ReactiveCocoa/Core (2.3.1):
@@ -35,12 +40,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking-RACExtensions
+  - Kiwi/XCTest
   - ReactiveCocoa (= 2.3.1)
   - ReactiveViewModel
 
 SPEC CHECKSUMS:
   AFNetworking: e7abefee64543aa978c9d759bc8892402b1ed7d1
   AFNetworking-RACExtensions: 1d7fbc98d11e9e02ae26faed0c777c6e840464b5
+  Kiwi: c73667f2b84cbf36f1a3830267c5a4ae8dcbd8ba
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
 
