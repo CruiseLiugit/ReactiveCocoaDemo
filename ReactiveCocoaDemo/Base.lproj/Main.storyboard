@@ -82,27 +82,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Eun-VZ-vxz">
-                                <rect key="frame" x="39" y="168" width="80" height="80"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dAk-pt-oDx">
-                                <rect key="frame" x="141" y="183" width="119" height="49"/>
-                                <state key="normal" title="Chose Image">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Populatiion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UfI-vd-elL">
-                                <rect key="frame" x="40" y="293" width="101" height="21"/>
+                                <rect key="frame" x="40" y="188" width="101" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="qHw-Ko-Qww">
-                                <rect key="frame" x="57" y="341" width="52" height="178"/>
+                                <rect key="frame" x="57" y="236" width="52" height="178"/>
                                 <color key="backgroundColor" red="0.78815009124087587" green="0.2316092609489051" blue="0.3641360173008471" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" id="tjP-ah-rh0">
-                                <rect key="frame" x="125" y="421" width="186" height="31"/>
+                                <rect key="frame" x="125" y="316" width="186" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                         </subviews>

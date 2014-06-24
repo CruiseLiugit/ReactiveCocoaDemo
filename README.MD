@@ -17,9 +17,7 @@
 关于ReactiveCocoa，有时并不会减少你的代码量，相反，会使代码
 相对难以理解（习惯就好了），而且也难以调试（可以给每个Signal 设置setNameWithFormat来方便调试）。
 
-ReacticeCocoa，相对于它的复杂度，文档还是比较缺乏的，官方文档还是不全，很多有用的UIView Category没有介绍，学习成本比较高。
-
-但是它可以减少代码的复杂度，结合MVVM模式使你的APP更好的分层，让每个VC的VM可以进行单元测试，因为VC里只有页面逻辑，VM里包含所有业务逻辑，VM也可以直接当成MODEL，VM是更加的testable的。
+它可以减少代码的复杂度(复杂项目比较适用)，结合MVVM模式使你的APP更好的分层，让每个VC的VM可以进行单元测试，因为VC里只有页面逻辑，VM里包含所有业务逻辑，VM也可以直接当成MODEL，VM是testable的。
 
 - FRP
 - MVVM
@@ -30,6 +28,7 @@ ReacticeCocoa，相对于它的复杂度，文档还是比较缺乏的，官方�
 - map
 - filter
 - rac_signalForSelector
+- RACDelegateProxy
 
 **参考资料：**
 

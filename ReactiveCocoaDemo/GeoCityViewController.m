@@ -11,8 +11,9 @@
 #import "MyTableViewCell.h"
 #import "AddCityViewController.h"
 #import "City.h"
+#import "RACDelegateProxy.h"
 
-@interface GeoCityViewController ()<UITableViewDataSource, SaveDataCallBack>
+@interface GeoCityViewController ()<UITableViewDataSource>
 
 @property (nonatomic, strong) GeoCityViewModel *viewModel;
 
@@ -44,6 +45,16 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    @weakify(self);
+
+    // add bind here due to the signal will release when push to new controller
+    [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
+        @strongify(self);
+        [self.entrustedTbl reloadData];
+    }];
+}
+
 -(void)bindViewModel {
     @weakify(self);
 
@@ -53,11 +64,11 @@
     // bind self.uid to viewModel.uid
     RAC(self.viewModel, uid) = RACObserve(self, uid);
 
-    // suscribe viewModel.entrustedProperties to refresh tableview
-    [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
-        @strongify(self);
-        [self.entrustedTbl reloadData];
-    }];
+//    // suscribe viewModel.entrustedProperties to refresh tableview
+//    [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
+//        @strongify(self);
+//        [self.entrustedTbl reloadData];
+//    }];
     
     // bind viewModel.searchCommand.executing to the invisible of loading indicator
     /* using   RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.searchCommand.executing;
@@ -87,7 +98,6 @@
 }
 
 #pragma mark - UITableViewDataSource methods
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.viewModel.cities.count;
 }
@@ -108,20 +118,15 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AddCityViewController *addController = (AddCityViewController *)[segue destinationViewController];
-    
-    [[[self rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)]
-     deliverOn:[RACScheduler mainThreadScheduler]]
-    subscribeNext:^(RACTuple *tuple) {
+    self.viewDelegate = [[RACDelegateProxy alloc]
+                                                initWithProtocol:@protocol(SaveDataCallBack)];
+    [[self.viewDelegate rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)] subscribeNext:^(RACTuple *tuple) {
         City *newCity = tuple.first;
-        [self.viewModel.cities addObject:newCity];
-        // need to refresh the table, because the signal is release when pushing new controller
-        [self.entrustedTbl reloadData];
+        [self.viewModel.cities insertObject:newCity atIndex:0];
     }];
     
-    // Need to "reset" the cached values of respondsToSelector: of UIKit
-    // due to the issue @giuhub https://github.com/ReactiveCocoa/ReactiveCocoa/issues/1121
-    addController.delegate = self;
+    AddCityViewController *addController = (AddCityViewController *)[segue destinationViewController];
+    addController.delegate = (id<SaveDataCallBack>)self.viewDelegate;
 }
 
 @end

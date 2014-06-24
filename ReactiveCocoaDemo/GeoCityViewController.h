@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSString *uid;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAdd;
 
+@property(nonatomic,strong) id viewDelegate;
+
 @end

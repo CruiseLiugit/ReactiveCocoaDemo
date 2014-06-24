@@ -25,7 +25,6 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
 -(id)init {
     self = [super init];
     if(!self) return nil;
-    
     // init search command
     self.searchCommand = [[RACCommand alloc] initWithEnabled:self.searchEnableSignal signalBlock:^RACSignal *(id input) {
         return self.searchSignal;

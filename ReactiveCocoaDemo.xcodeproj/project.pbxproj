@@ -26,7 +26,8 @@
 		FF610697193D705F00D15169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF610679193D705E00D15169 /* UIKit.framework */; };
 		FF61069F193D705F00D15169 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF61069D193D705F00D15169 /* InfoPlist.strings */; };
 		FF697A1619407B2C007BDBD3 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */; };
-		FF839E50194AE5FB00D4194B /* SampleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FF839E4F194AE5FB00D4194B /* SampleSpec.m */; };
+		FF81A19519597DC800DB965E /* AddCitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FF81A19419597DC800DB965E /* AddCitySpec.m */; };
+		FF839E50194AE5FB00D4194B /* CityListSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FF839E4F194AE5FB00D4194B /* CityListSpec.m */; };
 		FFB99D8C1940085E0063C266 /* GeoCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB99D8B1940085E0063C266 /* GeoCityViewController.m */; };
 		FFB99D8F19400D160063C266 /* GeoCityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB99D8E19400D160063C266 /* GeoCityViewModel.m */; };
 /* End PBXBuildFile section */
@@ -93,7 +94,8 @@
 		FF61069E193D705F00D15169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF697A1419407B2C007BDBD3 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
 		FF697A1519407B2C007BDBD3 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
-		FF839E4F194AE5FB00D4194B /* SampleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleSpec.m; sourceTree = "<group>"; };
+		FF81A19419597DC800DB965E /* AddCitySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCitySpec.m; sourceTree = "<group>"; };
+		FF839E4F194AE5FB00D4194B /* CityListSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListSpec.m; sourceTree = "<group>"; };
 		FFB99D8A1940085E0063C266 /* GeoCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoCityViewController.h; sourceTree = "<group>"; };
 		FFB99D8B1940085E0063C266 /* GeoCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoCityViewController.m; sourceTree = "<group>"; };
 		FFB99D8D19400D160063C266 /* GeoCityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoCityViewModel.h; sourceTree = "<group>"; };
@@ -257,7 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				FF61069B193D705F00D15169 /* Supporting Files */,
-				FF839E4F194AE5FB00D4194B /* SampleSpec.m */,
+				FF839E4F194AE5FB00D4194B /* CityListSpec.m */,
+				FF81A19419597DC800DB965E /* AddCitySpec.m */,
 			);
 			path = ReactiveCocoaDemoTests;
 			sourceTree = "<group>";
@@ -454,7 +457,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF839E50194AE5FB00D4194B /* SampleSpec.m in Sources */,
+				FF839E50194AE5FB00D4194B /* CityListSpec.m in Sources */,
+				FF81A19519597DC800DB965E /* AddCitySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
