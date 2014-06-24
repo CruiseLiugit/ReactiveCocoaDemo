@@ -48,7 +48,6 @@
     [self initUI];
     
     [self bindViewModel];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +94,6 @@
     [[self.sliderPop rac_newValueChannelWithNilValue:[NSNumber numberWithFloat:0.]] subscribeNext:^(NSNumber *popu) {
         self.viewModel.population = [popu floatValue];
     }];
-;
     
     RAC(self.barPopu, backgroundColor) = RACObserve(self.viewModel, popColor);
 }
