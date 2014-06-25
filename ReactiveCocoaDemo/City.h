@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface City : NSObject
+@interface City : MTLModel<MTLJSONSerializing>
 
 @property(nonatomic, copy) NSString *cityName;
 @property(nonatomic, copy) NSString *cityImage;
