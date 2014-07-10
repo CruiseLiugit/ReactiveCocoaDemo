@@ -39,7 +39,6 @@
 }
 
 // bind image with signal, but the cell will refresh when it will be shown again, need to resolve
-
 //- (void)bindingCellWith:(id)cellData {
 ////    self.city = (City *)cellData;
 ////    [RACObserve(self, city) subscribeNext:^(id x) {

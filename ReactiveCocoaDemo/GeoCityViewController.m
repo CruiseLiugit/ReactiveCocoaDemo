@@ -7,10 +7,14 @@
 //
 
 #import "GeoCityViewController.h"
-#import "GeoCityViewModel.h"
-#import "MyTableViewCell.h"
 #import "AddCityViewController.h"
+
+#import "GeoCityViewModel.h"
+
+#import "MyTableViewCell.h"
+
 #import "City.h"
+
 #import "RACDelegateProxy.h"
 
 @interface GeoCityViewController ()<UITableViewDataSource>
@@ -118,13 +122,17 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // 设置接受SaveDataCallBack回调的对象为self.viewDelegate
     self.viewDelegate = [[RACDelegateProxy alloc]
                                                 initWithProtocol:@protocol(SaveDataCallBack)];
+    
+    // 回调的处理
     [[self.viewDelegate rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)] subscribeNext:^(RACTuple *tuple) {
         City *newCity = tuple.first;
         [self.viewModel.cities insertObject:newCity atIndex:0];
     }];
     
+    // 再传递viewDelegate给新页面
     AddCityViewController *addController = (AddCityViewController *)[segue destinationViewController];
     addController.delegate = (id<SaveDataCallBack>)self.viewDelegate;
 }

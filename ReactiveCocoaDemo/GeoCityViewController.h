@@ -10,10 +10,24 @@
 
 @interface GeoCityViewController : UIViewController
 
+/**
+ *  城市列表
+ */
 @property (weak, nonatomic) IBOutlet UITableView *entrustedTbl;
+
+/**
+ *  用户ID
+ */
 @property (nonatomic, strong) NSString *uid;
+
+/**
+ *  右上角的添加Button
+ */
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAdd;
 
+/**
+ *  RACDelegateProxy用于设置接收回调的对象
+ */
 @property(nonatomic,strong) id viewDelegate;
 
 @end

@@ -10,7 +10,9 @@
 #import "City.h"
 
 @interface MyTableViewCell : UITableViewCell
-//- (void)bindingCellWith:(id)cellData;
-- (void)configCell;
+
 @property (nonatomic, strong) City *city;
+
+- (void)configCell;
+
 @end

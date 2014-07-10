@@ -11,7 +11,14 @@
 
 @interface City : MTLModel<MTLJSONSerializing>
 
+/**
+ *  城市名称
+ */
 @property(nonatomic, copy) NSString *cityName;
+
+/**
+ *  城市封面
+ */
 @property(nonatomic, copy) NSString *cityImage;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "City.h"
 
+// 新建城市的回调
 @protocol SaveDataCallBack <NSObject>
 
 -(void)didSaveDataCallback:(City *)city;

@@ -30,6 +30,7 @@
     return self;
 }
 
+// 初始化UI元素
 -(void)initUI {
     self.btnSave = [UIButton buttonWithType:UIButtonTypeContactAdd];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.btnSave];
@@ -58,6 +59,7 @@
     return YES;
 }
 
+// 绑定viewModel
 -(void)bindViewModel {
     @weakify(self);
 

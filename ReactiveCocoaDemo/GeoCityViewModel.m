@@ -15,7 +15,10 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
 
 @interface GeoCityViewModel()
 
+// 能否查询的开关信号
 @property (nonatomic, strong) RACSignal *searchEnableSignal;
+
+// 查询信号
 @property (nonatomic, strong) RACSignal *searchSignal;
 
 @end
@@ -38,7 +41,7 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
 
 -(RACSignal *)searchSignal {
     if (_searchSignal == nil) {
-        // first way
+        // 第一种方式
         // use AFNetworking+Extensions
 //        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //        manager.requestSerializer = [AFJSONRequestSerializer new];
@@ -46,10 +49,9 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
 //         _searchSignal = [manager rac_GET:kSubscribeURL parameters:params];
 //        return _searchSignal;
         
-        // second way
+        // 第二种方式
         // create a signal with standard AFNetworking framework
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             [manager GET:kSubscribeURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 // send next signal once request is complete
@@ -118,6 +120,7 @@ static NSString *const kSubscribeURL = @"http://api.geonames.org/citiesJSON?nort
         return NSLocalizedString(@"Error", nil);
     }];
     
+    // 绑定状态消息
     RAC(self, statusMessage) = failedMessageSource;
 }
 

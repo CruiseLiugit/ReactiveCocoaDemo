@@ -20,12 +20,20 @@
     return self;
 }
 
+/**
+ *  色彩属性绑定，根据UI上Slider的值
+ */
 -(void)bindPopulationColor {
     RAC(self, popColor) = [RACObserve(self, population) map:^id(NSNumber *popu) {
         return [UIColor colorWithRed:[popu floatValue] / 255. green:59 /255. blue:93/255. alpha:1.];
     }];
 }
 
+/**
+ *  城市名称验证器信号
+ *
+ *  @return 验证器的信号
+ */
 -(RACSignal *)cityNameValidatorSignal {
     if (_cityNameValidatorSignal == nil ) {
         _cityNameValidatorSignal = [RACObserve(self,cityName) map:^id(NSString *newName) {
@@ -41,6 +49,11 @@
     return _cityNameValidatorSignal;
 }
 
+/**
+ *  保存命令
+ *
+ *  @return 保存新建城市的命令
+ */
 -(RACCommand *)saveCommand {
     if (_saveCommand == nil) {
         _saveCommand = [[RACCommand alloc] initWithEnabled:self.cityNameValidatorSignal signalBlock:
@@ -48,8 +61,10 @@
                 return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                     NSDictionary *JSONDictionary = @{@"toponymName": self.cityName};
                     
+                    // 用Mantle来组装对象
                     City *newCity = [MTLJSONAdapter modelOfClass:City.class fromJSONDictionary:JSONDictionary error:nil];
                     
+                    // 发送信号
                     [subscriber sendNext:newCity];
                     [subscriber sendCompleted];
                     return nil;
