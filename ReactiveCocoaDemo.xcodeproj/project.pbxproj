@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		FF6E5F36197394DC00E4797B /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FF6E5F39197394DC00E4797B /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				FF6E5F3A197394EC00E4797B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		5FE44B00E7F24821978E20C2 /* libPods-ReactiveCocoaDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF3A9A3C35248DEBB0BB9B3 /* libPods-ReactiveCocoaDemoTests.a */; };
 		A68248665C8E44EDAEDE36E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F459F0A87D3B40B581E342B9 /* libPods.a */; };
@@ -348,6 +362,7 @@
 			targets = (
 				FF610671193D705E00D15169 /* ReactiveCocoaDemo */,
 				FF610692193D705F00D15169 /* ReactiveCocoaDemoTests */,
+				FF6E5F36197394DC00E4797B /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -433,6 +448,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		FF6E5F3A197394EC00E4797B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"ACME\";\ncompanyID=\"com.ACME\";\ncompanyURL=\"http://ACME.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"/Users/dajing/anjuke\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -655,6 +683,20 @@
 			};
 			name = Release;
 		};
+		FF6E5F37197394DC00E4797B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FF6E5F38197394DC00E4797B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -684,6 +726,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FF6E5F39197394DC00E4797B /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF6E5F37197394DC00E4797B /* Debug */,
+				FF6E5F38197394DC00E4797B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Documentation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>ReactiveCocoaDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>FF610692193D705F00D15169</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF6E5F36197394DC00E4797B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
