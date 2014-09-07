@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "City.h"
+
+@class City;
 
 @interface MyTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) City *city;
-
-- (void)configCell;
 
 @end

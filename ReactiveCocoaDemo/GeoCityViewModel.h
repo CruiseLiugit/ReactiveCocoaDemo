@@ -14,12 +14,7 @@
  *  城市数组
  */
 @property (nonatomic, strong) NSMutableArray *cities;
-
-/**
- *  查找Command
- */
-@property (nonatomic, strong) RACCommand *searchCommand;
-
+ 
 /**
  *  用户ID
  */
@@ -29,5 +24,6 @@
  *  服务的状态消息
  */
 @property (nonatomic, strong) NSString *statusMessage;
+
 
 @end

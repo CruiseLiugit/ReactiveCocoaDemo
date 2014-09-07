@@ -13,7 +13,7 @@
 /**
  *  城市列表
  */
-@property (weak, nonatomic) IBOutlet UITableView *entrustedTbl;
+@property (weak, nonatomic) IBOutlet UITableView *geoTbl;
 
 /**
  *  用户ID

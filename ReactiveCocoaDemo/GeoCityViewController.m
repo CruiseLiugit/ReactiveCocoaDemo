@@ -17,9 +17,13 @@
 
 #import "RACDelegateProxy.h"
 
+static NSString *identifier = @"identifierCell";
+
 @interface GeoCityViewController ()<UITableViewDataSource>
 
 @property (nonatomic, strong) GeoCityViewModel *viewModel;
+
+@property (nonatomic, assign) BOOL isLoading;
 
 @end
 
@@ -37,68 +41,48 @@
     
     // setup lots of bindings
     [self bindViewModel];
-    
-    // set uid to enable searchCommand
-    self.uid = @"124242";
-    
-    // execute searchCommand
-    [self.viewModel.searchCommand execute:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    @weakify(self);
-
-    // add bind here due to the signal will release when push to new controller
-    [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
-        @strongify(self);
-        [self.entrustedTbl reloadData];
-    }];
-}
-
 -(void)bindViewModel {
     @weakify(self);
 
+    [self.geoTbl registerClass:[MyTableViewCell class] forCellReuseIdentifier:identifier];
+    self.geoTbl.dataSource = self;
+
     // init viewModel
     self.viewModel = [GeoCityViewModel new];
-    
-    // bind self.uid to viewModel.uid
+    self.isLoading = YES;
+    self.uid = @"124242";
+
     RAC(self.viewModel, uid) = RACObserve(self, uid);
-
-//    // suscribe viewModel.entrustedProperties to refresh tableview
-//    [RACObserve(self.viewModel, cities) subscribeNext:^(id x) {
-//        @strongify(self);
-//        [self.entrustedTbl reloadData];
-//    }];
     
-    // bind viewModel.searchCommand.executing to the invisible of loading indicator
-    /* using   RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.searchCommand.executing;
-        will crash when u request data second time, dont know why, expect reason...
-     */
-    [[RACObserve(self.viewModel.searchCommand, executing) flattenMap:^RACStream *(id value) {
-        return value;
-    }] subscribeNext:^(id x) {
-        @strongify(self);
-
-        BOOL isLoading = [x boolValue];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = isLoading;
-        self.btnAdd.enabled = !isLoading;
+    // network loading flag subscription
+    [RACObserve(self, isLoading) subscribeNext:^(id x) {
+        UIApplication.sharedApplication.networkActivityIndicatorVisible = [x boolValue];
+        self.btnAdd.enabled = ! [x boolValue];
     }];
     
-    // subscribe statusMessage to show the alert
+    // network success binding
+    [[[RACObserve(self.viewModel, cities) ignore:nil] doNext:^(id x) {
+        self.isLoading = YES;
+    }] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.geoTbl reloadData];
+        self.isLoading = NO;
+    }];
+    
+    // network fail binding
     [[RACObserve(self.viewModel, statusMessage) filter:^BOOL(id value) {
         return value != nil;
     }]
      subscribeNext:^(NSString *msg) {
-        UIAlertView *msgAlert = [[UIAlertView alloc] initWithTitle:msg message:msg delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-        [msgAlert show];
-    }];
-    
-    // set tableview datasource to self, the cell render logic will be placed in this viewcontroller
-    self.entrustedTbl.dataSource = self;
+         UIAlertView *msgAlert = [[UIAlertView alloc] initWithTitle:msg message:msg delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+         [msgAlert show];
+     }];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -107,16 +91,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"identifierCell";
-
-    MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
+    MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     cell.city = self.viewModel.cities[indexPath.row];
-
-    [cell configCell];
     
     return  cell;
 }
@@ -130,6 +107,7 @@
     [[self.viewDelegate rac_signalForSelector:@selector(didSaveDataCallback:) fromProtocol:@protocol(SaveDataCallBack)] subscribeNext:^(RACTuple *tuple) {
         City *newCity = tuple.first;
         [self.viewModel.cities insertObject:newCity atIndex:0];
+        [self.geoTbl reloadData];
     }];
     
     // 再传递viewDelegate给新页面

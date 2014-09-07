@@ -63,7 +63,8 @@
                     
                     // 用Mantle来组装对象
                     City *newCity = [MTLJSONAdapter modelOfClass:City.class fromJSONDictionary:JSONDictionary error:nil];
-                    
+                    [self downloadImageForCity:newCity];
+
                     // 发送信号
                     [subscriber sendNext:newCity];
                     [subscriber sendCompleted];
@@ -73,6 +74,21 @@
 
     }
     return _saveCommand;
+}
+
+- (void)downloadImageForCity:(City *)city {
+    RAC(city, thumbnailData) = [self download:city.cityImage];
+}
+
+- (RACSignal *)download:(NSString *)urlString {
+    NSAssert(urlString, @"URL must not be nil");
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    
+    return [[[NSURLConnection rac_sendAsynchronousRequest:request]
+             reduceEach:^id(NSURLResponse *response, NSData *data){
+                 return data;
+             }] deliverOn:[RACScheduler mainThreadScheduler]];
 }
 
 @end

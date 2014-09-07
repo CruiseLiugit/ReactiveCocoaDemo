@@ -21,4 +21,6 @@
  */
 @property(nonatomic, copy) NSString *cityImage;
 
+@property (nonatomic, strong) NSData *thumbnailData;
+
 @end
