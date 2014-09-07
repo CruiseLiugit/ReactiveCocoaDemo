@@ -6,5 +6,5 @@ pod 'ReactiveViewModel'
 pod 'Mantle'
 
 target 'ReactiveCocoaDemoTests', :exclusive=>true do
-    pod 'Kiwi/XCTest'
+    pod 'Kiwi'
 end

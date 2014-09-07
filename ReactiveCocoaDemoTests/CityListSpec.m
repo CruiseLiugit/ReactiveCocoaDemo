@@ -15,7 +15,6 @@ describe(@"GeoCityViewModel", ^{
     context(@"After loading", ^{
         it(@"should have 10 cities", ^{
             viewModel.uid = @"11";
-            [viewModel.searchCommand execute:nil];
             [[expectFutureValue(viewModel.cities) shouldEventually] haveCountOf: 10];
         });
     });
